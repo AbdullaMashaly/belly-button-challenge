@@ -15,26 +15,44 @@ function init(data) {
     sampleValues = sampleValues.map(val => parseInt(val));
     let hoverText = data.samples[0].otu_labels;
     let otuIDS = data.samples[0].otu_ids;
-    otuIDS = otuIDS.map(val => (`OTU ${val}`))
-    let plotData =[{
+    // otuIDS = otuIDS.map(val => (`OTU ${val}`))
+    let barData =[{
         x : sampleValues.slice(0,10),
-        y : otuIDS.slice(0,10),
+        y : otuIDS.map(val => (`OTU ${val}`)).slice(0,10),
         type: "bar",
         orientation: "h",
         text: hoverText.slice(0,10)
     }];
 
-
     let layout = {
-        height: 600,
-        width: 800,
         yaxis: {
             autorange: 'reversed'
         }
       };
 
-    console.log("Plot", plotData);
+    
+    let bubbleData = [{
+        x : otuIDS,
+        y: sampleValues,
+        mode: 'markers',
+        marker: {
+            color: otuIDS,
+            size: sampleValues,
+            colorscale: 'Cividis' // Viridis, Cividis, Bluered, RdBu, Blues, Picnic, Rainbow, Blackbody
+        },
+        text: hoverText
+    }]
 
-    Plotly.newPlot("bar", plotData, layout);
+    let bubbleLayout = {
+        xaxis: {
+            title: "OTU ID"
+        },
+        yaxis: {
+            range: [0, 250]
+        }
+      };
+    Plotly.newPlot("bar", barData, layout);
+    Plotly.newPlot("bubble", bubbleData, bubbleLayout);
 
 }
+
