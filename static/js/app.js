@@ -8,6 +8,12 @@ d3.json(url).then( apiData => {
     allData = apiData;
     console.log("Data", allData);
     init(allData);
+
+    let namesArray = allData.names;
+    namesArray.map(function (name) {
+    let option = d3.select("#selDataset").append("option");
+    option.text(`${name}`);
+});
 })
 
 function init(data) {
@@ -29,7 +35,8 @@ function init(data) {
             autorange: 'reversed'
         }
       };
-
+      
+      Plotly.newPlot("bar", barData, layout);
     
     let bubbleData = [{
         x : otuIDS,
@@ -51,8 +58,21 @@ function init(data) {
             range: [0, 250]
         }
       };
-    Plotly.newPlot("bar", barData, layout);
     Plotly.newPlot("bubble", bubbleData, bubbleLayout);
+
+    let metadata = data.metadata[0];
+    let metadataKeys = Object.keys(metadata)
+    let metadataValues = Object.values(metadata)
+
+    for (let i = 0; i < metadataKeys.length; i++) {
+        let line = d3.select("#sample-metadata").append("h6")
+        line.text(`${metadataKeys[i]} : ${metadataValues[i]}`)
+    }
+    
 
 }
 
+
+// function optionChanged(value) {
+//     let idNumber = value
+// }
