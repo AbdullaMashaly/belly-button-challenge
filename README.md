@@ -14,15 +14,19 @@ The dashboard is built with JavaScript using the D3 library to fetch and parse d
 1. Dropdown Menu: Lists all the individual sample IDs. When an ID is selected, the dashboard updates with data corresponding to the chosen sample.
 
 ![Dropdown Menu](assets/dropdown.png)
+
 2. Demographic Information Panel: Displays metadata about the selected individual.
 
 ![Demographic Information Panel](assets/demo-info.png)
+
 3. Horizontal Bar Chart: Displays the top 10 OTUs for the selected individual.
 
 ![Horizontal Bar Chart](assets/hbar-chart.png)
+
 4. Bubble Chart: Visualizes the sample's OTU distribution.
 
 ![Bubble Chart](assets/Bubble-chart.png)
+
 5. Gauge Chart: Represents the weekly washing frequency of the selected individual.
 
 ![Gauge Chart](assets/gauge-chart.png)
