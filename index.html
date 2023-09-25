@@ -12,9 +12,9 @@
 <body>
 
   <div class="container">
-    <div class="row">
-      <div class="col-md-12 jumbotron text-center">
-        <h1>Belly Button Biodiversity Dashboard</h1>
+    <div class="row" >
+      <div class="col-md-12 jumbotron text-center" style="margin-top: 4px;border: 2px solid black;background-color: white;background-image: url('https://img.freepik.com/free-vector/microscope-realistic-illustration_1284-9503.jpg?w=1060&t=st=1695613918~exp=1695614518~hmac=2373300aa4624c880f1f571a2d9d540ce13a2745e7a2771861cb993cb6e9e6cc');background-size:contain ;background-position: left; background-repeat: no-repeat;">
+        <h1 >Belly Button Biodiversity Dashboard</h1>
         <p>Use the interactive charts below to explore the dataset</p>
       </div>
     </div>
@@ -24,21 +24,21 @@
           <h5>Test Subject ID No.:</h5>
           <select id="selDataset" onchange="optionChanged(this.value)"></select>
         </div>
-        <div class="panel panel-primary">
+        <div class="panel panel-primary" >
           <div class="panel-heading">
             <h3 class="panel-title">Demographic Info</h3>
           </div>
           <div id="sample-metadata" class="panel-body"></div>
         </div>
       </div>
-      <div class="col-md-5">
+      <div class="col-md-5" >
         <div id="bar"></div>
       </div>
       <div class="col-md-5">
         <div id="gauge"></div>
       </div>
     </div>
-    <div class="row">
+    <div class="row" style="border: 2px solid black;">
       <div class="col-md-12">
         <div id="bubble"></div>
       </div>
@@ -48,7 +48,7 @@
   <script src="https://d3js.org/d3.v7.min.js"></script>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
   <script src="./static/js/app.js"></script>
-  <script src="./static/js/bonus.js"></script>
+
 
 </body>
 
